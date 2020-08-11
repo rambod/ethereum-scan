@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flare_flutter/flare_actor.dart';
+
 
 class BlocksPage extends StatefulWidget {
   @override
@@ -8,8 +10,8 @@ class BlocksPage extends StatefulWidget {
 class _BlocksPageState extends State<BlocksPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('Blocks Page',style: TextStyle(fontSize: 30),),
+    return Container(height: 150,
+      child: FlareActor('assets/anim/loading.in.blue.ethereum.flr',animation: 'Loading',)
     );
   }
 }

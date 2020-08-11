@@ -1,3 +1,4 @@
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
 class WalletPage extends StatefulWidget {
@@ -9,7 +10,11 @@ class _WalletPageState extends State<WalletPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Wallet Page',style: TextStyle(fontSize: 30),),
-    );
+        child: Container(
+            height: 150,
+            child: FlareActor(
+              'assets/anim/loading.in.blue.ethereum.flr',
+              animation: 'Loading',
+            )));
   }
 }

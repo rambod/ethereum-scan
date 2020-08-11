@@ -8,18 +8,23 @@ class MainProvider with ChangeNotifier {
   List _blockReward = [];
   List _estimaedBlockCountDown = [];
   List _blockNumberTimestamp = [];
-  List _transactions = [];
+  Map _transactions;
   Map _currentPrice;
   List _ethPriceHistory = [];
   List _addressTransactionList = [];
   Map _gasPrice;
+  Map _currentBlockNumber;
+
+  Map get currentBlockNumber{
+    return _currentBlockNumber;
+  }
 
   Map get gasPrice{
     return _gasPrice;
   }
 
-  List get transactions {
-    return [..._transactions];
+  Map get transactions {
+    return _transactions;
   }
 
   List get blockReward {
@@ -44,6 +49,15 @@ class MainProvider with ChangeNotifier {
 
   List get ethPriceHistory {
     return [..._ethPriceHistory];
+  }
+
+  Future<Null> fetchCurrentBlockNumber() async{
+    await http.get('https://api.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey='+ _apiKey).then((value){
+      _currentBlockNumber = json.decode(value.body);
+      notifyListeners();
+    }).catchError((e){
+      print(e);
+    });
   }
 
   Future<Null> fetchGasPrice() async{
@@ -120,6 +134,7 @@ class MainProvider with ChangeNotifier {
                 _apiKey)
         .then((value) {
       print(value.body);
+      _transactions = json.decode(value.body);
       notifyListeners();
     });
   }

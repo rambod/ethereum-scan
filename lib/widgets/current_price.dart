@@ -1,4 +1,5 @@
 import 'package:ethereumscan/provider/main_provider.dart';
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -44,7 +45,7 @@ class _CurrentPriceState extends State<CurrentPrice> {
             ? Row(
           mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircularProgressIndicator(backgroundColor: Colors.blue),
+          Container(height: 60,width:60,child: FlareActor('assets/anim/loading.in.blue.ethereum.flr',animation: 'Loading',))
                 ],
               )
             : mainProvider.currentPrice != null ? Column(
@@ -68,7 +69,7 @@ class _CurrentPriceState extends State<CurrentPrice> {
                           children: [
                             Icon(FontAwesomeIcons.dollarSign,size: _iconSize,color: Colors.green[900]),
                             Container(margin:EdgeInsets.all(10),child: Text(mainProvider.currentPrice['ethusd'].toString(),style: TextStyle(fontSize: _fontSize))),
-                            Icon(FontAwesomeIcons.ethereum,color: Colors.blue[900], size: _iconSize,),
+                            Icon(FontAwesomeIcons.ethereum,color: Colors.indigo[900], size: _iconSize,),
                             Container(margin:EdgeInsets.all(10),child: Text(mainProvider.currentPrice['ethbtc'].toString(),style: TextStyle(fontSize: _fontSize),)),
                             Icon(FontAwesomeIcons.bitcoin,size: _iconSize,color: Colors.yellow[900],),
 
@@ -83,7 +84,8 @@ class _CurrentPriceState extends State<CurrentPrice> {
           children: [
             RaisedButton(
               onPressed: fetchData,
-              child: Icon(Icons.refresh),
+              color: Colors.indigo[900],
+              child: Icon(Icons.refresh,color: Colors.white,),
             )
           ],
         ),

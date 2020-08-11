@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
 
 //        primarySwatch: createMaterialColor(Color(0xFF270378)),
           primarySwatch: MaterialColor(
-              Colors.blue.shade900.value,
+              Colors.grey.shade300.value,
               {
                 50: Colors.grey.shade50,
                 100: Colors.grey.shade100,
@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
           textTheme: ThemeData.light().textTheme.copyWith(
             body1: TextStyle(
-              fontWeight: FontWeight.bold
+              fontWeight: FontWeight.normal
             )
           ),
         ),
