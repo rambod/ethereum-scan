@@ -7,6 +7,8 @@ import 'package:ethereumscan/pages/wallet_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'converter_page.dart';
+
 enum pageSelected {
   Converter,
   Transaction,
@@ -32,7 +34,7 @@ class _MainPageState extends State<MainPage> {
           child: Container(
             height: MediaQuery.of(context).size.height,
             child: Center(
-              child: _selectedPaged == 2 ? HomePage() : _selectedPaged == 0 ? BlocksPage() : _selectedPaged == 1 ? TransactionPage() : _selectedPaged == 3 ? WalletPage(): _selectedPaged == 4 ? SettingPage() : HomePage()
+              child: _selectedPaged == 2 ? HomePage() : _selectedPaged == 0 ? ConverterPage() : _selectedPaged == 1 ? TransactionPage() : _selectedPaged == 3 ? WalletPage(): _selectedPaged == 4 ? SettingPage() : HomePage()
             ),
           ),
         ),
