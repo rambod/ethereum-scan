@@ -42,7 +42,7 @@ class _ConverterPageState extends State<ConverterPage> {
 
                       });
                     },
-                    items: <String>['Wei','Gwei','ETH'].map<DropdownMenuItem<String>>((String e){
+                    items: <String>['Wei','KWei','MWei','Gwei','Szabo','Finney','ETH','KEther','MEther','GEther','TEther'].map<DropdownMenuItem<String>>((String e){
                       return DropdownMenuItem<String>(
                         value: e,
                         child: Text(e),
